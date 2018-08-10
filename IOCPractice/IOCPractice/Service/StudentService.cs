@@ -6,16 +6,11 @@ using IOCPractice.Core;
 
 namespace IOCPractice.Service
 {
-    public class DogService:IAnimal,IRun
+    public class StudentService: IRun
     {
         public void Run()
         {
-            Console.WriteLine("小狗在跑");
-        }
-
-        public void Shout()
-        {
-            Console.WriteLine("汪汪汪");
+            Console.WriteLine("学生在跑");
         }
     }
 }
