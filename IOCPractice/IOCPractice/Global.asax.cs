@@ -22,6 +22,7 @@ namespace IOCPractice
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            ControllerBuilder.Current.SetControllerFactory(new DefaultController());
             //构造Autofac容器的builder
             var builder = new ContainerBuilder();
             //注册所有的Controller
