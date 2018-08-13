@@ -8,5 +8,6 @@ namespace IOCPractice.Core
 {
     public interface IService
     {
+        string Success();
     }
 }

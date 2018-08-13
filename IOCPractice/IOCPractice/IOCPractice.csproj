@@ -159,6 +159,7 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\DogService.cs" />
+    <Compile Include="Service\InjectionTestService.cs" />
     <Compile Include="Service\StudentService.cs" />
   </ItemGroup>
   <ItemGroup>

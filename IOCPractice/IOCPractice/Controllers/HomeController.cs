@@ -3,11 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using IOCPractice.Core;
 
 namespace IOCPractice.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly IService _service;
+
+        public HomeController(IService service)
+        {
+            _service = service;
+        }
+
         public ActionResult Index()
         {
             return View();
@@ -15,7 +23,8 @@ namespace IOCPractice.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+          
+            ViewBag.Message = _service.Success();
 
             return View();
         }
