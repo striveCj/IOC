@@ -9,9 +9,7 @@ namespace IOCPractice.Controllers
 {
     public class HomeController : Controller
     {
-        public HomeController()
-        {
-        }
+
         private readonly IService _service;
 
         public HomeController(IService service)
