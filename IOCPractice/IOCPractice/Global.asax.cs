@@ -22,25 +22,26 @@ namespace IOCPractice
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-            ControllerBuilder.Current.SetControllerFactory(new DefaultController());
-            //构造Autofac容器的builder
-            var builder = new ContainerBuilder();
-            //注册所有的Controller
-            builder.RegisterControllers(Assembly.GetEntryAssembly());
-            //RegisterType方式
-            builder.RegisterType<InjectionTestService>().AsSelf().InstancePerDependency();
-            //Register方式
-            builder.Register(c => new InjectionTestService()).AsSelf().InstancePerDependency();
-            //获取包含继承了IService接口类的程序集
-            var assemblies = BuildManager.GetReferencedAssemblies().Cast<Assembly>().Where(assembly =>
-                                 assembly.GetTypes().FirstOrDefault(type => type.GetInterfaces().Contains(typeof(IService))) != null);
-            //RegisterAssemblyTypes注册程序集
-            var enumerable = assemblies as Assembly[] ?? assemblies.ToArray();
-            if (enumerable.Any())
-            {
-                builder.RegisterAssemblyTypes(enumerable).Where(type => type.GetInterfaces().Contains(typeof(IService)))
-                    .AsSelf().InstancePerDependency();
-            }
+            AutoFacConfig.Initialise();
+            //ControllerBuilder.Current.SetControllerFactory(new DefaultController());
+            ////构造Autofac容器的builder
+            //var builder = new ContainerBuilder();
+            ////注册所有的Controller
+            //builder.RegisterControllers(Assembly.GetEntryAssembly());
+            ////RegisterType方式
+            //builder.RegisterType<InjectionTestService>().AsSelf().InstancePerDependency();
+            ////Register方式
+            //builder.Register(c => new InjectionTestService()).AsSelf().InstancePerDependency();
+            ////获取包含继承了IService接口类的程序集
+            //var assemblies = BuildManager.GetReferencedAssemblies().Cast<Assembly>().Where(assembly =>
+            //                     assembly.GetTypes().FirstOrDefault(type => type.GetInterfaces().Contains(typeof(IService))) != null);
+            ////RegisterAssemblyTypes注册程序集
+            //var enumerable = assemblies as Assembly[] ?? assemblies.ToArray();
+            //if (enumerable.Any())
+            //{
+            //    builder.RegisterAssemblyTypes(enumerable).Where(type => type.GetInterfaces().Contains(typeof(IService)))
+            //        .AsSelf().InstancePerDependency();
+            //}
         }
     }
 }
