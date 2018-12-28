@@ -153,6 +153,7 @@
     <Compile Include="Core\AutoFacConfig.cs" />
     <Compile Include="Core\DefaultController.cs" />
     <Compile Include="Core\IAnimal.cs" />
+    <Compile Include="Core\IPeople.cs" />
     <Compile Include="Core\IRun.cs" />
     <Compile Include="Core\IService.cs" />
     <Compile Include="Global.asax.cs">
@@ -161,6 +162,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\DogService.cs" />
     <Compile Include="Service\InjectionTestService.cs" />
+    <Compile Include="Service\People.cs" />
     <Compile Include="Service\StudentService.cs" />
   </ItemGroup>
   <ItemGroup>
