@@ -12,38 +12,30 @@ namespace IOCPractice.Core
 {
     public class AutoFacConfig
     {
-        /// <summary>
-        /// 初始化
-        /// </summary>
-        public static void Initialise()
+        public static void Register()
         {
-            var builder = RegisterService();
-            DependencyResolver.SetResolver(new AutofacDependencyResolver(builder.Build()));
-        }
-
-        /// <summary>
-        /// 注入实现
-        /// </summary>
-        /// <returns></returns>
-        private static ContainerBuilder RegisterService()
-        {
+            //实例化一个autofac的创建容器
             var builder = new ContainerBuilder();
+            //告诉Autofac框架，将来要创建的控制器类存放在哪个程序集 (Wchl.CRM.WebUI)
+            Assembly controllerAss = Assembly.Load("Wchl.WMBlog.WebUI");
+            builder.RegisterControllers(controllerAss);
 
-            var baseType = typeof(IDependencyResolver);
+            //告诉autofac框架注册数据仓储层所在程序集中的所有类的对象实例
+            Assembly respAss = Assembly.Load("Wchl.WMBlog.Repository");
+            //创建respAss中的所有类的instance以此类的实现接口存储
+            builder.RegisterTypes(respAss.GetTypes()).AsImplementedInterfaces();
 
-            //扫描IService和Service相关的程序集
+            //告诉autofac框架注册业务逻辑层所在程序集中的所有类的对象实例
+            Assembly serpAss = Assembly.Load("Wchl.WMBlog.Services");
+            //创建serAss中的所有类的instance以此类的实现接口存储
+            builder.RegisterTypes(serpAss.GetTypes()).AsImplementedInterfaces();
 
-            var assemblys = BuildManager.GetReferencedAssemblies().Cast<Assembly>()
-                .Where(m => m.FullName.Contains("IOCPractice")).ToList();
+            // builder.RegisterType<>().As<>();
 
-
-            builder.RegisterControllers(assemblys.ToArray());
-
-            //自动注入
-            builder.RegisterAssemblyTypes(assemblys.ToArray())
-                   .Where(t => baseType.IsAssignableFrom(t) && t != baseType)
-                   .AsImplementedInterfaces().InstancePerLifetimeScope();
-            return builder;
+            //创建一个Autofac的容器
+            var container = builder.Build();
+            //将MVC的控制器对象实例 交由autofac来创建
+            DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
         }
     }
     //public static void Register()
