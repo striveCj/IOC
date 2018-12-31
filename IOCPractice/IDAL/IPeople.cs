@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IOCPractice.Core
+namespace IDAL
 {
-   public interface IPeople
-   {
+    public interface IPeople
+    {
         string Run();
-   }
+    }
 }

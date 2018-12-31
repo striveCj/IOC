@@ -21,12 +21,12 @@ namespace IOCPractice.Core
             builder.RegisterControllers(controllerAss);
 
             //告诉autofac框架注册数据仓储层所在程序集中的所有类的对象实例
-            Assembly respAss = Assembly.Load("IOCPractice");
+            Assembly respAss = Assembly.Load("IDAL");
             //创建respAss中的所有类的instance以此类的实现接口存储
             builder.RegisterTypes(respAss.GetTypes()).AsImplementedInterfaces();
 
             //告诉autofac框架注册业务逻辑层所在程序集中的所有类的对象实例
-            Assembly serpAss = Assembly.Load("IOCPractice");
+            Assembly serpAss = Assembly.Load("DAL");
             //创建serAss中的所有类的instance以此类的实现接口存储
             builder.RegisterTypes(serpAss.GetTypes()).AsImplementedInterfaces();
 

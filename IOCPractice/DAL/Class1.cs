@@ -1,12 +1,13 @@
-﻿using System;
+﻿using IDAL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using IOCPractice.Core;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace IOCPractice.Service
+namespace DAL
 {
-    public class People:IPeople
+    public class People : IPeople
     {
         public string Run()
         {

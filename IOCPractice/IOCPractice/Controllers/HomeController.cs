@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using IOCPractice.Core;
+using IDAL;
 
 namespace IOCPractice.Controllers
 {
