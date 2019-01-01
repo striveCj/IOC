@@ -13,5 +13,11 @@ namespace DAL
         {
             return "成功";
         }
+
+        public People()
+        {
+            name = "cj";
+        }
+        public string name { get; set; }
     }
 }
