@@ -10,6 +10,7 @@ using System.Web.Compilation;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using DAL.Attribute;
 using IOCPractice.Service;
 
 namespace IOCPractice
@@ -22,7 +23,16 @@ namespace IOCPractice
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-            AutoFacConfig.Register();
+            //AutoFacConfig.Register();
+            //实例化一个autofac的创建容器
+            var builder = new ContainerBuilder();
+            builder.RegisterAssemblyTypes(AppDomain.CurrentDomain.GetAssemblies()).Where(t => t.GetCustomAttribute<IocRegisterAttibute>() != null).AsImplementedInterfaces().InstancePerRequest();
+            ////使用Autofac提供的RegisterControllers扩展方法来对程序集中所有的Controller一次性的完成注册
+            builder.RegisterControllers(Assembly.GetExecutingAssembly());
+            var container = builder.Build();
+            //下面就是使用MVC的扩展 更改了MVC中的注入方式.
+            DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
+
             //创建autofac管理注册类的容器实例
             //var builder = new ContainerBuilder();
             ////下面就需要为这个容器注册它可以管理的类型

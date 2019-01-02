@@ -14,6 +14,7 @@ namespace IOCPractice.Controllers
         private readonly IPeople _service;
 
         public HomeController(IPeople service)
+        //public HomeController()
         {
             _service = service;
         }
