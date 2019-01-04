@@ -21,6 +21,18 @@ namespace IocAttribute
             //var c = container.Resolve<ClassC>();
             //c.Show();
             //c.D.Show();
+            var builder = new ContainerBuilder();
+            builder.RegisterType(typeof(LogManager));
+            builder.RegisterType(typeof(ConsoleLogger)).As(typeof(ILogger));
+            //builder.RegisterType(typeof(TextLogger)).As(typeof(ILogger));
+
+            using (var container = builder.Build())
+            {
+                var logManager = container.Resolve<LogManager>();
+                logManager.Log("日志记录...");
+            }
+            Console.WriteLine("日志完毕");
+            Console.ReadKey();
         }
     }
 }

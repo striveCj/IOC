@@ -27,6 +27,7 @@ namespace IOCPractice
             //实例化一个autofac的创建容器
             var builder = new ContainerBuilder();
             builder.RegisterAssemblyTypes(AppDomain.CurrentDomain.GetAssemblies()).Where(t => t.GetCustomAttribute<IocRegisterAttibute>() != null).AsImplementedInterfaces().InstancePerRequest();
+            //builder.RegisterAssemblyTypes(AppDomain.CurrentDomain.GetAssemblies()).AsImplementedInterfaces().InstancePerRequest();
             ////使用Autofac提供的RegisterControllers扩展方法来对程序集中所有的Controller一次性的完成注册
             builder.RegisterControllers(Assembly.GetExecutingAssembly());
             var container = builder.Build();
