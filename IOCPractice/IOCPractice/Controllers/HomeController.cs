@@ -9,11 +9,7 @@ namespace IOCPractice.Controllers
 {
     public class HomeController : Controller
     {
-        public HomeController()
-        {
-        }
         private readonly IService _service;
-
         public HomeController(IService service)
         {
             _service = service;
@@ -27,8 +23,8 @@ namespace IOCPractice.Controllers
         public ActionResult About()
         {
           
-            ViewBag.Message = _service.Success();
-
+           var messages = _service.Success();
+            ViewBag.Message = messages;
             return View();
         }
 
