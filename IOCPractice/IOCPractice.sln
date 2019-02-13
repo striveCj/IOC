@@ -1,9 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27130.2003
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IOCPractice", "IOCPractice\IOCPractice.csproj", "{7AFCB72A-BFC3-4494-A1CB-FF60C7F4A5C2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IDAL", "IDAL\IDAL.csproj", "{22C3C923-519B-441C-BD5F-DE4D5B3D38CA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{55A49D65-928C-4A38-8D56-425721754A62}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IocAttribute", "IocAttribute\IocAttribute.csproj", "{EEE14E47-B444-48F4-BE37-5BED4A564270}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +21,18 @@ Global
 		{7AFCB72A-BFC3-4494-A1CB-FF60C7F4A5C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7AFCB72A-BFC3-4494-A1CB-FF60C7F4A5C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7AFCB72A-BFC3-4494-A1CB-FF60C7F4A5C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22C3C923-519B-441C-BD5F-DE4D5B3D38CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22C3C923-519B-441C-BD5F-DE4D5B3D38CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22C3C923-519B-441C-BD5F-DE4D5B3D38CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22C3C923-519B-441C-BD5F-DE4D5B3D38CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55A49D65-928C-4A38-8D56-425721754A62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55A49D65-928C-4A38-8D56-425721754A62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55A49D65-928C-4A38-8D56-425721754A62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55A49D65-928C-4A38-8D56-425721754A62}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EEE14E47-B444-48F4-BE37-5BED4A564270}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EEE14E47-B444-48F4-BE37-5BED4A564270}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EEE14E47-B444-48F4-BE37-5BED4A564270}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EEE14E47-B444-48F4-BE37-5BED4A564270}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

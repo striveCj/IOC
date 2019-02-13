@@ -10,11 +10,9 @@ namespace IOCPractice.Core
 {
     public class DefaultController:DefaultControllerFactory
     {
-        //protected override IController GetControllerInstance(RequestContext requestContext, Type controllerType)
-        //{
-        //       //return controllerType == null
-        //       // ? base.GetControllerInstance(requestContext, controllerType)
-        //       // : AutofacDependencyResolver.Resolve<IController>(controllerType);
-        //}
+        protected override IController GetControllerInstance(RequestContext requestContext, Type controllerType)
+        {
+            return base.GetControllerInstance(requestContext, controllerType);
+        }
     }
 }
