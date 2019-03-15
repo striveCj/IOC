@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using IDAL;
 using IOCPractice.Core;
 
 namespace IOCPractice.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly IService _service;
-        public HomeController(IService service)
+        private readonly IPeople _service;
+        public HomeController(IPeople service)
         {
             _service = service;
         }
@@ -23,7 +24,7 @@ namespace IOCPractice.Controllers
         public ActionResult About()
         {
           
-           var messages = _service.Success();
+           var messages = _service.Run();
             ViewBag.Message = messages;
             return View();
         }
